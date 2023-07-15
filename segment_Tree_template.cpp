@@ -1,8 +1,3 @@
-// segment tree
-#include<bits/stdc++.h>
-using namespace std;
-#define int long long
-
 
 class SegmentTree{
 public:
@@ -81,48 +76,3 @@ seg[idx] = min(seg[2*idx + 1], seg[2*idx + 2]);
 }
 
 };
-void solve() {
-	
-int n;
-cin>>n;
- int arr[n];
-for(int i=0;i<n;i++) cin>>arr[i];
-
-int q;
-cin>>q;
-
-SegmentTree sg(n);
-sg.build(0,0,n-1, arr);
-
-while(q--)
-{ int type;
-  cin>>type;
-  if(type==1)
-  {
-  int l , r;
-  cin>>l>>r;
-  
-  cout<<sg.query(0, 0, n-1, l, r,arr)<<endl;
-  }
-  else
-  {
-  	int k , val;
-  	cin>>k>>val;
-  	
-  	sg.update(0, 0, n-1,k , val , arr);
-  }
-	
-}	
-
-}
-
-signed main(){
-
-solve();
-
-return 0;	
-	
-	
-}
-	
-		
